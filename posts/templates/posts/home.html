@@ -9,14 +9,12 @@
 <header> COFFEE BLOG</header>
 
 {% for post in post_list %}
-<p>
-    {{ post.title }}
-    <br/>
-    <br/>
+
+<h2>{{ post.title }}</h2>
     {{ post.text|slice:":75" }}...
     <br/>
-    <a href="#smth">Read more</a>
-</p>
+    <a href="{% url 'post_detail' post.pk %}">Read more</a>
+
 {% endfor %}
 
 </body>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COFFEE BLOG</title>
+</head>
+<body>
+
+<header> COFFEE BLOG</header>
+
+{% for post in post_list %}
+<p>
+    {{ post.title }}
+    <br/>
+    <br/>
+    {{ post.text|slice:":75" }}...
+    <br/>
+    <a href="#smth">Read more</a>
+</p>
+{% endfor %}
+
+</body>
+</html>

@@ -5,4 +5,4 @@ Blog application utilizing CRUD methods and forms.
 Python, Django
 
 ## I learned
-Class based views, CRUD methids, forms
+Class based views, detail view, CRUD methods, forms

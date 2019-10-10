@@ -1,5 +1,5 @@
 # Blog-CRUD-App
-Blog application utilizing CRUD methods and forms.
+Self-created Blog application utilizing CRUD methods and forms.
 
 ## Stack
 Python, Django

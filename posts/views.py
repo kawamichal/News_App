@@ -1,7 +1,5 @@
-from django.shortcuts import render
-
 # Create your views here.
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from posts.models import Post
 
@@ -13,3 +11,16 @@ class BlogListView(ListView):
 class BlogDetailView(DetailView):
     model = Post
     template_name = 'posts/detail.html'
+
+class BlogCreateView(CreateView):
+    model = Post
+    template_name = 'posts/new.html'
+    fields = '__all__'
+
+class BlogUpdateView(UpdateView):
+    model = Post
+    template_name = 'posts/update.html'
+    fields = ['title', 'text']
+
+class BlogDeleteView(DeleteView):
+    pass

@@ -5,10 +5,17 @@
     <title>COFFEE BLOG</title>
 </head>
 
+<header>
+    <h2>{{ post.title }}</h2>
+</header>
+
+
 <body>
-
-<h1>{{ post.title }}</h1>
-{{ post.text }}
-
+    {{ post.text }}
+    <br/>
+    <br/>
+    <a href="{% url 'update' post.pk %}">Update post</a>
+    <br/>
+    <a href="{% url 'home' %}">Go back</a>
 </body>
 </html>

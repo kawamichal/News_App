@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <title>COFFEE BLOG</title>
 </head>
-<body>
 
-<header> COFFEE BLOG</header>
+<header>
+    <h1> COFFEE BLOG </h1>
+    <a href="{% url 'new' %}">New post</a>
+</header>
+
+<body>
 
 {% for post in post_list %}
 
 <h2>{{ post.title }}</h2>
     {{ post.text|slice:":75" }}...
-    <br/>
-    <a href="{% url 'post_detail' post.pk %}">Read more</a>
+
+<br/>
+    <a href="{% url 'detail' post.pk %}">Read more</a>
 
 {% endfor %}
 

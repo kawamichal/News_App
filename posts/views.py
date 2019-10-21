@@ -9,19 +9,23 @@ class BlogListView(ListView):
     model = Post
     template_name = 'posts/home.html'
 
+
 class BlogDetailView(DetailView):
     model = Post
     template_name = 'posts/detail.html'
+
 
 class BlogCreateView(CreateView):
     model = Post
     template_name = 'posts/new.html'
     fields = '__all__'
 
+
 class BlogUpdateView(UpdateView):
     model = Post
     template_name = 'posts/update.html'
     fields = ['title', 'text']
+
 
 class BlogDeleteView(DeleteView):
     model = Post

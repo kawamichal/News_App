@@ -6,6 +6,7 @@ from posts.models import Post
 
 
 class BlogListView(ListView):
+    queryset = Post.published.all() # modifies the displayed posts to only those with status = published
     model = Post
     template_name = 'posts/home.html'
 

@@ -24,7 +24,8 @@ class BlogDetailView(DetailView):
 class BlogCreateView(CreateView):
     model = Post
     template_name = 'posts/new.html'
-    fields = '__all__'
+    fields = ['title', 'author', 'text', 'tags']
+    success_url = reverse_lazy('posts:home')
 
 
 class BlogUpdateView(UpdateView):
@@ -36,7 +37,7 @@ class BlogUpdateView(UpdateView):
 class BlogDeleteView(DeleteView):
     model = Post
     template_name = 'posts/delete.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('posts:home')
 
 def comment(request, slug):
     post = get_object_or_404(Post, slug=slug)

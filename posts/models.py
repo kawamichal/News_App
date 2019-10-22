@@ -28,7 +28,7 @@ class Post(models.Model):
     # converts the obtained data (eg. title) into URL with hyphens instead of spaces
     slug = models.SlugField(max_length=250, unique_for_date='publish_date')
     publish_date = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=20, choices=CHOICES, default=DRAFT)
+    status = models.CharField(max_length=20, choices=CHOICES, default=PUBLISHED)
 
     # managers
     objects = models.Manager()  # default manager for all posts
@@ -46,7 +46,7 @@ class Post(models.Model):
 
     # redirects to the url with edited slug
     def get_absolute_url(self):
-        return reverse('posts:detail', kwargs={'slug': self.slug, 'pk': self.pk})
+        return reverse('posts:detail', kwargs={'slug': self.slug})
 
     # update slug when post is edited
     def save(self, *args, **kwargs):

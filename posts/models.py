@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
 
+# constant arguments for choices
 DRAFT = 'draft'
 PUBLISHED = 'published'
 CHOICES = (
@@ -48,3 +49,6 @@ class Post(models.Model):
         value = self.title
         self.slug = slugify(value, allow_unicode=True)
         super().save(*args, **kwargs)
+
+class Comment(models.Model):
+    pass

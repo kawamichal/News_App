@@ -11,5 +11,6 @@ urlpatterns = [
     path('<slug>/comment', views.comment, name="comment"),
     path('new', BlogCreateView.as_view(), name='new'),
     path('<slug>/update', BlogUpdateView.as_view(), name='update'),
-    path('<slug>/delete', BlogDeleteView.as_view(), name='delete')
+    path('<slug>/delete', BlogDeleteView.as_view(), name='delete'),
+    path('topic/<slug:slug>/', views.tagged, name='tagged')
 ]

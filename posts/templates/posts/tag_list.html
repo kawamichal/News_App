@@ -1,0 +1,29 @@
+My Blog
+
+{% if tag %}
+
+Posts tagged with "{{ tag.name }}"
+
+{% endif %}
+
+{% for post in posts %}
+
+{{ post.title }}
+
+
+Tags:
+
+{% for tag in post.tags.all %}
+
+{{ tag.name }}
+
+{% if not forloop.last %}, {% endif %}
+
+{% endfor %}
+
+
+Published {{ post.publish_date }} by {{ post.author }}
+
+{{ post.body|truncatewords:30|linebreaks }}
+
+{% endfor %}

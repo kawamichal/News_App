@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.text import slugify
 
 DRAFT = 'draft'
 PUBLISHED = 'published'
@@ -22,13 +23,12 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     author = models.ForeignKey(User, on_delete=models.CASCADE)  # !add related_name later!
     text = models.TextField()
-    slug = models.SlugField(max_length=250,
-                            unique_for_date='publish_date')  # converts the obtained data (eg. title) into URL with hyphens instead of spaces
-    publish_date = models.DateTimeField(default=timezone.now)
-    created_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True)
+    # converts the obtained data (eg. title) into URL with hyphens instead of spaces
+    slug = models.SlugField(max_length=250, unique_for_date='publish_date')
+    publish_date = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=20, choices=CHOICES, default=DRAFT)
 
+    # managers
     objects = models.Manager()  # default manager for all posts
     published = PublishedManager()  # custom manager only for published posts
 
@@ -38,3 +38,13 @@ class Post(models.Model):
     # default ordering of the posts according to the publish date
     class Meta:
         ordering = ('-publish_date',)
+
+    # redirects to the url with edited slug
+    def get_absolute_url(self):
+        return reverse('posts:detail', kwargs={'slug': self.slug})
+
+    # update slug when post is edited
+    def save(self, *args, **kwargs):
+        value = self.title
+        self.slug = slugify(value, allow_unicode=True)
+        super().save(*args, **kwargs)

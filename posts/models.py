@@ -42,7 +42,7 @@ class Post(models.Model):
 
     # redirects to the url with edited slug
     def get_absolute_url(self):
-        return reverse('posts:detail', kwargs={'slug': self.slug})
+        return reverse('posts:detail', kwargs={'slug': self.slug, 'pk': self.pk})
 
     # update slug when post is edited
     def save(self, *args, **kwargs):
@@ -51,4 +51,11 @@ class Post(models.Model):
         super().save(*args, **kwargs)
 
 class Comment(models.Model):
-    pass
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=200)
+    text = models.TextField()
+    publish_date = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f'Comment added to {self.post} by {self.author} on {self.publish_date}'

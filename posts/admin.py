@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from posts.models import Post
+from posts.models import Post, Comment
 
 
 @admin.register(Post)  # same as: admin.site.register(Post)
@@ -14,3 +14,9 @@ class PostAdmin(admin.ModelAdmin):  # overwriting default admin page for Post mo
     list_filter = ('status', 'author', 'publish_date')
     # pre-adjusted fields in new posts
     prepopulated_fields = {'slug': ('title',)} #authomatically fills the slug field with the name of the post
+
+@admin.register(Comment)
+class Comment(admin.ModelAdmin):
+    list_display = ('author', 'post', 'publish_date', 'active')
+    list_filter = ('active', 'publish_date')
+    search_fields = ('author', 'text')

@@ -11,15 +11,33 @@
 
 
 <body>
-    {{ post.text }}
-    <br/>
-    {{ post.publish_date }}
-    <br/>
-    <br/>
-    <a href="{% url 'posts:update' post.slug %}">Update post</a>
-    <br/>
-    <a href="{% url 'posts:delete' post.slug %}">Delete post</a>
-    <br/>
-    <a href="{% url 'posts:home' %}">Go back</a>
+{{ post.text }}
+<br/>
+{{ post.publish_date }}
+<br/>
+<br/>
+<a href="{% url 'posts:update' post.slug %}">Update post</a>
+<br/>
+<a href="{% url 'posts:delete' post.slug %}">Delete post</a>
+<br/>
+<a href="{% url 'posts:home' %}">Go back</a>
+<br/>
+<hr>
+
+<h3>Comment section:</h3>
+<a class="btn btn-default" href="{% url 'posts:comment' post.slug %}">Add comment</a>
+<br/>
+<br/>
+{% for comment in post.comments.all %}
+{% if comment.active %}
+<div class="comment">
+    <div class="date">{{ comment.publish_date }}</div>
+    <strong>{{ comment.author }}</strong>
+    <p>{{ comment.text|linebreaks }}</p>
+</div>
+{% endif %}
+{% empty %}
+<p>No comments here yet :(</p>
+{% endfor %}
 </body>
 </html>

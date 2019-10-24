@@ -1,11 +1,12 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.text import slugify
 
-# constant arguments for choices
 from taggit.managers import TaggableManager
 
+# constant arguments for choices
 DRAFT = 'draft'
 PUBLISHED = 'published'
 CHOICES = (
@@ -25,31 +26,31 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     author = models.ForeignKey(User, on_delete=models.CASCADE)  # !add related_name later!
     text = models.TextField()
-    # converts the obtained data (eg. title) into URL with hyphens instead of spaces
-    slug = models.SlugField(max_length=250, unique_for_date='publish_date')
-    publish_date = models.DateTimeField(auto_now=True)
+    category = models.TextField(max_length=100)
+
+    slug = models.SlugField(max_length=250,
+                            unique_for_date='publish_date')  # converts the obtained data (eg. title) into URL with hyphens instead of spaces
+    publish_date = models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=20, choices=CHOICES, default=PUBLISHED)
 
     # managers
     objects = models.Manager()  # default manager for all posts
     published = PublishedManager()  # custom manager only for published posts
 
-    # taggit manager
-    tags = TaggableManager()
+    ordering = ['publish_date']
+
+    tags = TaggableManager()  # taggit manager
 
     def __str__(self):
         return self.title
 
-    # default ordering of the posts according to the publish date
-    class Meta:
+    class Meta:  # default ordering of the posts according to the publish date
         ordering = ('-publish_date',)
 
-    # redirects to the url with edited slug
-    def get_absolute_url(self):
+    def get_absolute_url(self):  # redirects to the url with edited slug
         return reverse('posts:detail', kwargs={'slug': self.slug})
 
-    # update slug when post is edited
-    def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs):  # update slug when post is edited
         value = self.title
         self.slug = slugify(value, allow_unicode=True)
         super().save(*args, **kwargs)

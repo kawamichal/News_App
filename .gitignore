@@ -101,3 +101,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# legacy content
+/posts/templates/posts/delete_legacy.html
+/posts/templates/posts/new_legacy.html
+/posts/templates/posts/update_legacy.html
+/posts/templates/posts/home_legacy.html

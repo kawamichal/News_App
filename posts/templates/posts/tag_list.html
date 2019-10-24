@@ -10,19 +10,21 @@ Posts tagged with "{{ tag.name }}"
 
 {{ post.title }}
 
+<br/>
 
 Tags:
 
 {% for tag in post.tags.all %}
 
-{{ tag.name }}
+#{{ tag.name }}
 
 {% if not forloop.last %}, {% endif %}
 
 {% endfor %}
 
-
+<br/>
 Published {{ post.publish_date }} by {{ post.author }}
+<br/>
 
 {{ post.body|truncatewords:30|linebreaks }}
 

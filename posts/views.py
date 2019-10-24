@@ -8,6 +8,7 @@ from posts.forms import CommentForm
 from posts.models import Post
 
 
+# class based views
 class BlogListView(ListView):
     queryset = Post.published.all()  # modifies the displayed posts to only those with status = published
     model = Post
@@ -21,24 +22,7 @@ class BlogDetailView(DetailView):
     template_name = 'posts/detail.html'
 
 
-class BlogCreateView(CreateView):
-    model = Post
-    template_name = 'posts/new.html'
-    fields = ['title', 'author', 'text', 'tags']
-    success_url = reverse_lazy('posts:home')
-
-
-class BlogUpdateView(UpdateView):
-    model = Post
-    template_name = 'posts/update.html'
-    fields = ['title', 'text']
-
-
-class BlogDeleteView(DeleteView):
-    model = Post
-    template_name = 'posts/delete.html'
-    success_url = reverse_lazy('posts:home')
-
+# Function based views
 def comment(request, slug):
     post = get_object_or_404(Post, slug=slug)
     if request.method == "POST":
@@ -52,8 +36,8 @@ def comment(request, slug):
         form = CommentForm()
     return render(request, 'posts/comment.html', {'form': form})
 
-def tagged(request, slug):
 
+def tagged(request, slug):
     tag = get_object_or_404(Tag, slug=slug)
     posts = Post.objects.filter(tags__in=[tag])
 
@@ -62,3 +46,22 @@ def tagged(request, slug):
         'posts': posts,
     }
     return render(request, 'posts/tag_list.html', context)
+
+# legacy views
+# class BlogCreateView(CreateView):
+#     model = Post
+#     template_name = 'posts/new_legacy.html'
+#     fields = ['title', 'author', 'text', 'tags']
+#     success_url = reverse_lazy('posts:home')
+#
+#
+# class BlogUpdateView(UpdateView):
+#     model = Post
+#     template_name = 'posts/update_legacy.html'
+#     fields = ['title', 'text']
+#
+#
+# class BlogDeleteView(DeleteView):
+#     model = Post
+#     template_name = 'posts/delete_legacy.html'
+#     success_url = reverse_lazy('posts:home')

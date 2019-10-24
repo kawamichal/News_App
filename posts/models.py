@@ -7,6 +7,8 @@ from django.utils.text import slugify
 from taggit.managers import TaggableManager
 
 # constant arguments for choices
+from tinymce.models import HTMLField
+
 DRAFT = 'draft'
 PUBLISHED = 'published'
 CHOICES = (
@@ -25,7 +27,7 @@ class PublishedManager(models.Manager):
 class Post(models.Model):
     title = models.CharField(max_length=250)
     author = models.ForeignKey(User, on_delete=models.CASCADE)  # !add related_name later!
-    text = models.TextField()
+    text = HTMLField()
     category = models.TextField(max_length=100)
 
     slug = models.SlugField(max_length=250,

@@ -23,7 +23,7 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',
     'taggit_templatetags2',
     'taggit',
-
+    'tinymce',
 ]
 
 MIDDLEWARE = [

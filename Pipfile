@@ -10,6 +10,7 @@ django = "*"
 ipython = "*"
 django-taggit = "*"
 django-taggit-templatetags2 = "*"
+django-tinymce = "*"
 
 [requires]
 python_version = "3.7"

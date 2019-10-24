@@ -11,7 +11,7 @@ class PostAdmin(admin.ModelAdmin):  # overwriting default admin page for Post mo
     # adding a search bar
     search_fields = ('title', 'text')
     # adding a filter list
-    list_filter = ('status', 'author', 'publish_date')
+    list_filter = ('status', 'author', 'publish_date', 'category')
     # pre-adjusted fields in new posts
     prepopulated_fields = {'slug': ('title',)} #authomatically fills the slug field with the name of the post
 

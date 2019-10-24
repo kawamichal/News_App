@@ -13,7 +13,6 @@ class BlogListView(ListView):
     queryset = Post.published.all()  # modifies the displayed posts to only those with status = published
     model = Post
     template_name = 'posts/home.html'
-    paginate_by = 5  # how many posts will be displayed
 
 
 class BlogDetailView(DetailView):

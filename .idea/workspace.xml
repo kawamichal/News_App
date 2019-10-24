@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9bb916f4-0511-4d92-a68b-8b39dfcd9ad2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/templates/posts/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/posts/delete_legacy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/templates/posts/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/posts/detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/templates/posts/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/posts/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/templates/posts/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/posts/new_legacy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/templates/posts/tag_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/posts/tag_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/templates/posts/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/templates/posts/update_legacy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

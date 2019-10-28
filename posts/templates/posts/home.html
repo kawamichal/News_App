@@ -1,78 +1,35 @@
-<!doctype html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block content%}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>Coffee News</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/blog/">
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Custom styles for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-    <link href="blog.css" rel="stylesheet">
-</head>
-
-<body>
-<div class="container">
-    <header class="blog-header py-3">
-        <div class="row flex-nowrap justify-content-between align-items-left">
-            <div class="col-4 pt-1">
-            </div>
-            <div class="col-4 text-center">
-                <h1>
-                    <a class="blog-header-logo text-dark">COFFEE NEWS</a>
-                </h1>
-            </div>
-            <div class="col-4 d-flex justify-content-end align-items-center">
-            </div>
-        </div>
-    </header>
-
-    <div class="nav-scroller py-1 mb-2">
-        <hr/>
-        <nav class="nav d-flex justify-content-between">
-
-            {% load taggit_templatetags2_tags %}
-            {% get_taglist as tags %}
-            {% for tag in tags|slice:":12" %}
-            <a class="p-2 text-muted" href="{% url 'posts:tagged' tag.slug %}"> #{{ tag }} </a>
-            {% endfor %}
-        </nav>
-    </div>
-    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-        <div>
-            <h1 class="display-4 font-italic">{{ post_list.0.title }}</h1>
-            <p class="lead my-3">{{ post_list.0.text|slice:":250" }}...</p>
-            <p class="lead mb-0"><a href="{% url 'posts:detail' post_list.0.slug %}"
-                                    class="text-white font-weight-bold">Continue reading...</a></p>
-        </div>
-    </div>
-    <div class="row mb-2">
-        {% for post in post_list|slice:"1:3" %}
-        <div class="col-md-6">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                <div class="card-body d-flex flex-column align-items-start">
-                    <strong class="d-inline-block mb-2 text-primary">{{ post.category }}</strong>
-                    <h3 class="mb-0">
-                        <a class="text-dark" href="#">{{ post.title}}</a>
-                    </h3>
-                    <div class="mb-1 text-muted">{{ post.published_date }}</div>
-                    <p class="card-text mb-auto">{{ post.text|slice:":250" }}...</p>
-
-                    <a href="{% url 'posts:detail' post.slug %}">Continue reading</a>
-                </div>
-
-            </div>
-        </div>
-        {% endfor %}
+<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+    <div>
+        <h1 class="display-4 font-italic">{{ post_list.0.title }}</h1>
+        <p class="lead my-3">{{ post_list.0.text|slice:":250" }}...</p>
+        <p class="lead mb-0"><a href="{% url 'posts:detail' post_list.0.slug %}"
+                                class="text-white font-weight-bold">Continue reading...</a></p>
     </div>
 </div>
+
+<div class="row mb-2">
+    {% for post in post_list|slice:"1:3" %}
+    <div class="col-md-6">
+        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+                <strong class="d-inline-block mb-2 text-primary">{{ post.category }}</strong>
+                <h3 class="mb-0">
+                    <a class="text-dark" href="#">{{ post.title}}</a>
+                </h3>
+                <div class="mb-1 text-muted">{{ post.published_date }}</div>
+                <p class="card-text mb-auto">{{ post.text|slice:":250" }}...</p>
+
+                <a href="{% url 'posts:detail' post.slug %}">Continue reading</a>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
 
 <main role="main" class="container">
     <div class="row">
@@ -98,30 +55,10 @@
                 <br/>
             </div><!-- /.blog-post -->
             {% endfor %}
-
-        </div><!-- /.blog-main -->
-
-        <aside class="col-md-4 blog-sidebar">
-            <div class="p-3 mb-3 bg-light rounded">
-                <h4 class="font-italic">About the author</h4>
-                <p class="mb-0">Hi! I am Michał Kawa, a junior-level Python developer and I made this website as a part
-                    of my ongoing self-study on Python. Let me know what you think.</p>
-            </div>
-
-            <div class="p-3">
-                <h4 class="font-italic">Where you can find me</h4>
-                <ol class="list-unstyled">
-                    <li><a href="https://github.com/kawamichal">GitHub</a></li>
-                    <li><a href="https://www.linkedin.com/in/kawa-michal/">LinkedIn</a></li>
-                    <li><a href="http://michalkawa.azurewebsites.net/">Portfolio</a></li>
-                    <li><a href="mailto:michal.kawa@hotmail.com">Mail</a></li>
-                </ol>
-            </div>
-        </aside><!-- /.blog-sidebar -->
-
-    </div><!-- /.row -->
-
+        </div><!-- /.row -->
+    </div>
 </main><!-- /.container -->
+{% endblock %}
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -145,6 +82,10 @@
         fg: '#eceeef',
         text: 'Thumbnail'
       });
+
+
+
+
 
 </script>
 </body>

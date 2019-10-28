@@ -5,4 +5,4 @@ Self-created news/blog application with articles, tags, comment sections and fil
 Python, Django, Bootstrap
 
 ## I learned
-Class based views, detail view, adding comment section, tags and filtering by tags (using taggit), Django forms, Bootstrap crispy forms, custom admin page and filtering
+Class based views, detail view, adding comment section, tags and filtering by tags (using taggit), Django forms, Bootstrap crispy forms, custom admin page and filtering, django ORM and managers

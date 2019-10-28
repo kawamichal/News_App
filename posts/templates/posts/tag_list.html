@@ -1,31 +1,34 @@
-My Blog
+{% extends 'base.html' %}
+{%block content%}
 
-{% if tag %}
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-8 blog-main">
+            {% if tag %}
+            <h3 class="pb-3 mb-4 font-italic border-bottom">
+                Posts tagged with #{{ tag.name }}:
+            </h3>
+            {% endif %}
+            {% for post in posts %}
+            <div class="blog-post">
+                <h2 class="blog-post-title">{{ post.title}}</h2>
+                <p class="tags">
+                    Tags: {% for tag in post.tags.all %}
+                    <a href="{% url 'posts:tagged' tag.slug %}">{{ tag.name }}</a>
+                    {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                <p class="blog-post-meta">{{ post.publish_date }} by <a>{{ post.author }}</a></p>
 
-Posts tagged with "{{ tag.name }}"
+                <p>{{ post.text|slice:":250" }}...</p>
+                <a href="{% url 'posts:detail' post.slug %}">Continue reading</a>
+                <br/>
+                <br/>
+                <br/>
+            </div><!-- /.blog-post -->
+            {% endfor %}
+        </div><!-- /.row -->
+    </div>
+</main><!-- /.container -->
 
-{% endif %}
-
-{% for post in posts %}
-
-{{ post.title }}
-
-<br/>
-
-Tags:
-
-{% for tag in post.tags.all %}
-
-#{{ tag.name }}
-
-{% if not forloop.last %}, {% endif %}
-
-{% endfor %}
-
-<br/>
-Published {{ post.publish_date }} by {{ post.author }}
-<br/>
-
-{{ post.body|truncatewords:30|linebreaks }}
-
-{% endfor %}
+{% endblock%}

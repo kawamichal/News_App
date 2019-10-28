@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block content%}
-
 <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
     <div>
         <h1 class="display-4 font-italic">{{ post_list.0.title }}</h1>
@@ -9,7 +8,6 @@
                                 class="text-white font-weight-bold">Continue reading...</a></p>
     </div>
 </div>
-
 <div class="row mb-2">
     {% for post in post_list|slice:"1:3" %}
     <div class="col-md-6">
@@ -29,8 +27,6 @@
     </div>
     {% endfor %}
 </div>
-
-
 <main role="main" class="container">
     <div class="row">
         <div class="col-md-8 blog-main">
@@ -56,6 +52,22 @@
             </div><!-- /.blog-post -->
             {% endfor %}
         </div><!-- /.row -->
+        <aside class="col-md-4 blog-sidebar">
+            <div class="p-3 mb-3 bg-light rounded">
+                <h4 class="font-italic">About the author</h4>
+                <p class="mb-0">Hi! I am Michał Kawa, a junior-level Python developer and I made this website as a part
+                    of my ongoing self-study on Python. Let me know what you think!</p>
+            </div>
+            <div class="p-3">
+                <h4 class="font-italic">Where you can find me</h4>
+                <ol class="list-unstyled">
+                    <li><a href="https://github.com/kawamichal">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/kawa-michal/">LinkedIn</a></li>
+                    <li><a href="http://michalkawa.azurewebsites.net/">Portfolio</a></li>
+                    <li><a href="mailto:michal.kawa@hotmail.com">Mail</a></li>
+                </ol>
+            </div>
+        </aside><!-- /.blog-sidebar -->
     </div>
 </main><!-- /.container -->
 {% endblock %}
@@ -82,10 +94,6 @@
         fg: '#eceeef',
         text: 'Thumbnail'
       });
-
-
-
-
 
 </script>
 </body>

@@ -14,14 +14,16 @@
                 <h2 class="blog-post-title">{{ post.title}}</h2>
                 <p class="tags">
                     Tags: {% for tag in post.tags.all %}
-                    <a href="{% url 'posts:tagged' tag.slug %}">{{ tag.name }}</a>
+                    <a href="{% url 'posts:tagged' tag.slug %}" class="text-info">#{{ tag.name }}</a>
                     {% if not forloop.last %}, {% endif %}
                     {% endfor %}
                 </p>
                 <p class="blog-post-meta">{{ post.publish_date }} by <a>{{ post.author }}</a></p>
 
                 <p>{{ post.text|slice:":250" }}...</p>
-                <a href="{% url 'posts:detail' post.slug %}">Continue reading</a>
+                <a href="{% url 'posts:detail' post.slug %}">
+                    <button type="button" class="btn btn-info ">Continue reading</button>
+                </a>
                 <br/>
                 <br/>
                 <br/>

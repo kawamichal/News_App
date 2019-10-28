@@ -11,6 +11,8 @@ ipython = "*"
 django-taggit = "*"
 django-taggit-templatetags2 = "*"
 django-tinymce = "*"
+django-richtextfield = "*"
+django-crispy-forms = "*"
 
 [requires]
 python_version = "3.7"

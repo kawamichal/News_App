@@ -23,7 +23,7 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',
     'taggit_templatetags2',
     'taggit',
-    'tinymce',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -83,6 +83,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# crispy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

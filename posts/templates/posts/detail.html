@@ -11,7 +11,7 @@
     </p>
     <p class="blog-post-meta">{{ post.publish_date }} by <a>{{ post.author }}</a></p>
 
-    <p>{{ post.text|slice:":250" }}...</p>
+    <p>{{ post.text|linebreaks }}</p>
     <a href="{% url 'posts:home' %}">
         <button type="button" class="btn btn-info ">Go back</button>
     </a>

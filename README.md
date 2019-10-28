@@ -1,4 +1,4 @@
-# Blog-CRUD-App
+# News/Blog App
 Self-created news/blog application with articles, tags, comment sections and filtering posts by categories.
 
 ## Stack

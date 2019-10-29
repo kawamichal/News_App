@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "909b54bce6c10434f04ff126189947eb7602fa54a2b4d804909bc9e8a6fd30c0"
+            "sha256": "2e4318fa364d9baf226a1ddb9a453bccad1b183d6f77d1d975ccd1c2043e6919"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -75,6 +75,13 @@
             "index": "pypi",
             "version": "==1.1.0"
         },
+        "django-taggit-serializer": {
+            "hashes": [
+                "sha256:f712eb2482079be452bcd1e82b18a820e26427c3ee1cef2b4fcd4d6b8b9f14d0"
+            ],
+            "index": "pypi",
+            "version": "==0.1.7"
+        },
         "django-taggit-templatetags2": {
             "hashes": [
                 "sha256:eb41d76bdcc4f4e2979dfa93e34f98380a92296c4658646c522b514b70040322"
@@ -89,6 +96,14 @@
             ],
             "index": "pypi",
             "version": "==2.8.0"
+        },
+        "djangorestframework": {
+            "hashes": [
+                "sha256:5488aed8f8df5ec1d70f04b2114abc52ae6729748a176c453313834a9ee179c8",
+                "sha256:dc81cbf9775c6898a580f6f1f387c4777d12bd87abf0f5406018d32ccae71090"
+            ],
+            "index": "pypi",
+            "version": "==3.10.3"
         },
         "ipython": {
             "hashes": [

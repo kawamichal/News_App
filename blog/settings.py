@@ -23,7 +23,9 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',
     'taggit_templatetags2',
     'taggit',
-    'crispy_forms'
+    'crispy_forms',
+    'rest_framework',
+    'taggit_serializer'
 ]
 
 MIDDLEWARE = [

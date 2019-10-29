@@ -13,6 +13,8 @@ django-taggit-templatetags2 = "*"
 django-tinymce = "*"
 django-richtextfield = "*"
 django-crispy-forms = "*"
+djangorestframework = "*"
+django-taggit-serializer = "*"
 
 [requires]
 python_version = "3.7"

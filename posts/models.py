@@ -37,12 +37,10 @@ class Post(models.Model):
     objects = models.Manager()  # default manager for all posts
     published = PublishedManager()  # custom manager only for published posts
 
-    ordering = ['publish_date']
-
     tags = TaggableManager()  # taggit manager
 
     def __str__(self):
-        return self.title
+        return '{}'.format(self.title)
 
     class Meta:  # default ordering of the posts according to the publish date
         ordering = ('-publish_date',)

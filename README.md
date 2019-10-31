@@ -1,4 +1,4 @@
-# News/Blog App
+# News App
 Self-created news/blog application with articles, tags, comment sections and filtering posts by categories. The app also features simple API that allows viewing articles and posting comments.
 
 ## Stack

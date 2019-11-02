@@ -15,8 +15,9 @@ class PostDetail(generics.RetrieveAPIView):
     serializer_class = PostSerializer
 
 
-class CommentList(generics.ListCreateAPIView):
+class CommentByPostList(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
-
+    def get_queryset(self):
+        return Comment.objects.filter(post=self.kwargs['pk'])

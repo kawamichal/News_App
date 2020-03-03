@@ -15,7 +15,7 @@ username: testadmin<br/>
 password: admin1441
 
 username: testuser<br/>
-password: admin1441
+password: user1441
 
 ## Stack
 - Python, 

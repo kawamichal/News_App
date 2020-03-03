@@ -14,6 +14,9 @@ Credentials for testing purposes:<br/>
 username: testadmin<br/>
 password: admin1441
 
+username: testuser<br/>
+password: admin1441
+
 ## Stack
 - Python, 
 - Django, 
